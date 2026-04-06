@@ -29,7 +29,8 @@
           {
             "group": "Storefront Guide",
             "pages": [
-              "user-guides/storefront/introduction"
+              "user-guides/storefront/introduction",
+              "user-guides/storefront/sample"
             ]
           }
         ]
