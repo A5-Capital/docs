@@ -35,17 +35,6 @@
         ]
       },
       {
-        "tab": "Reseller Portal",
-        "groups": [
-          {
-            "group": "Reseller Hub",
-            "pages": [
-              "user-guides/reseller-portal/introduction"
-            ]
-          }
-        ]
-      },
-      {
         "tab": "User Portal",
         "groups": [
           {
@@ -57,23 +46,34 @@
         ]
       },
       {
-        "tab": "SyncWarehouse",
+        "tab": "Reseller Portal",
         "groups": [
           {
-            "group": "Warehouse Ops",
+            "group": "Reseller Hub",
             "pages": [
-              "user-guides/warehouse/introduction"
+              "user-guides/reseller-portal/introduction"
             ]
           }
         ]
       },
       {
-        "tab": "Mobile Portal",
+        "tab": "Mobile Reseller Portal",
         "groups": [
           {
             "group": "Mobile App",
             "pages": [
               "user-guides/mobile-portal/introduction"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Sync Warehouse",
+        "groups": [
+          {
+            "group": "Warehouse Ops",
+            "pages": [
+              "user-guides/warehouse/introduction"
             ]
           }
         ]
