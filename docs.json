@@ -1,7 +1,19 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "A5SYNC Docs",
+  "name": "A5SYNC Documentation",
+  "seo": {
+    "metatags": {
+      "og:site_name": "A5SYNC Documentation",
+      "twitter:card": "summary_large_image",
+      "og:title": "A5SYNC Developer & Platform Docs",
+      "og:description": "The official documentation for integrating, configuring, and extending the A5SYNC platform including Storefront, Reseller Portal, and core warehouse APIs.",
+      "twitter:title": "A5SYNC Developer & Platform Docs",
+      "twitter:description": "The official documentation for integrating, configuring, and extending the A5SYNC platform including Storefront, Reseller Portal, and core warehouse APIs.",
+      "og:image": "https://a5sync.com/og-image.png",
+      "twitter:image": "https://a5sync.com/og-image.png"
+    }
+  },
   "colors": {
     "primary": "#7676FF",
     "light": "#8A8AFF",
