@@ -1,0 +1,48 @@
+---
+title: "AI Writing Guidelines"
+description: "Rules, meta-prompts, and DRY principles to feed into AI assistants (like Cursor, Claude, or GitHub Copilot) when generating docs."
+icon: "robot"
+---
+
+# AI Writing Guidelines
+
+When using an AI tool or agent to write or re-structure documentation for A5SYNC, it is critical that the AI understands our structural and formatting rules so it doesn't generate "hallucinated" Mintlify errors or disorganized walls of text.
+
+If you are using Cursor, place these instructions in your prompt. If you are chatting with an AI Agent, **copy and paste the Meta-Prompt below** as your first message.
+
+---
+
+## The AI Meta-Prompt
+
+Copy everything below the line and provide it to your AI tool before asking it to write an A5SYNC document:
+
+***
+
+**System Instructions for A5SYNC Documentation Task:**
+
+1. **Mintlify Ecosystem:** You are writing for a Mintlify documentation site (`docs.a5sync.com`). You will write using `.mdx` format.
+2. **Frontmatter is Mandatory:** Every single file you create must start with YAML frontmatter containing `title`, `description`, and `icon`.
+3. **Conceptual Breakdown:** If the user asks you to document a large feature (e.g., "Quotes", "Orders", "Users"), **DO NOT** write a 500-line single file. Break the feature down conceptually:
+   - Create a subfolder.
+   - Separate the Administrative / Configuration tasks from the Daily Usage tasks.
+   - Ensure no file is longer than ~150 lines.
+4. **DRY Principle (Don't Repeat Yourself):** If you are writing a piece of content that applies to multiple areas (e.g., "What is a Tenant?", "How to authenticate"), do not repeat the text. Instead, create a reusable snippet inside the `_snippets/` folder and import it using `<Snippet file="filename.mdx" />`.
+5. **Updating Navigation:** If you create a new `.mdx` file, you **must** immediately update `docs.json` to link it under the correct `tab` and `group` array, omitting the `.mdx` extension.
+6. **Components over Text:** Do not write a wall of text for sequence tasks. If a task has 3 or more sequential steps, use the Mintlify `<Steps>` and `<Step>` components. If providing alternative code examples or OS instructions, use the Mintlify `<Tabs>` and `<Tab>` components.
+7. **Writing Style:** Use Active Voice. Keep sentences short. Always **bold** UI elements that the user must click or interact with.
+
+***
+
+## Deep Dive: DRY Principle in Docs
+
+The most common mistake when using AI is allowing it to copy-paste identical explanations into multiple files. This makes future maintenance impossible.
+
+**AI Rules for DRY:**
+- Always check the `_snippets/` folder before defining a core A5SYNC term.
+- If you catch the AI defining the same concept twice in a session, instruct it: *"Extract that definition into a snippet and replace both instances with the snippet import."*
+
+## Deep Dive: Modifying `docs.json`
+
+Always remind the AI: *"Make sure you add the new files to `docs.json` inside the correct Tab context, otherwise your files won't render."*
+
+If the AI fails to update `docs.json`, Mintlify will completely ignore the `.mdx` files it generated.

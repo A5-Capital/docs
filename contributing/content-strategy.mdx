@@ -20,23 +20,29 @@ Every page in the A5SYNC docs should represent **one specific concept or user go
 
 ## Page Length & Sections
 
-### When to Create a Subsection (Folder)
-**Rule of Thumb:** If an overarching topic (e.g., "Checkout Settings") requires more than 3 distinct H2 (`##`) sections that take more than 2-3 scrolls to read, **it is too long.**
+### Conceptual Breaking Points (When to Split)
+When documenting a massive domain-level feature (like **Orders**, **Quotes**, or **Product Catalogs**), do not cram everything into one page. 
 
-* **Bad:** Having a single `checkout.mdx` file that explains how to configure taxes, manage shipping rules, customize the UI, and handle abandoned carts.
-* **Good:** Creating a folder `user-guides/storefront/checkout/` and breaking it into:
-  - `taxes.mdx`
-  - `shipping-rules.mdx`
-  - `abandoned-carts.mdx`
+**How to determine when to break:**
+1. **The "CRUD" Test:** If a feature involves Creating, Reading, Updating, and Deleting complex entities, those usually deserve separate pages or highly distinct tabs.
+2. **The "Persona" Test:** Does configuring the feature require an Admin, but using it only requires a standard User? Split the "Configuration" into a separate page from the "Usage".
+
+**Example Breakdown for `Orders`:**
+* **Bad:** A single `orders.mdx` that explains what an order is, how to configure fulfillment stages, how to issue refunds, and how to query the orders API.
+* **Good:** Create a folder `user-guides/storefront/orders/` and break it conceptually:
+  - `introduction.mdx`: What is the Order module? High-level overview.
+  - `fulfillment-stages.mdx`: Configuration and definitions of the states.
+  - `returns-and-refunds.mdx`: Purely the workflow for handling refunds.
 
 ### Grouping in `docs.json`
-When you break a topic into sub-files, group them nicely in `docs.json` so the sidebar remains clean:
+When you break a conceptual topic down like the `Orders` example above, encapsulate it cleanly in `docs.json`:
 ```json
 {
-  "group": "Checkout Configurations",
+  "group": "Order Management",
   "pages": [
-    "user-guides/storefront/checkout/taxes",
-    "user-guides/storefront/checkout/shipping-rules"
+    "user-guides/storefront/orders/introduction",
+    "user-guides/storefront/orders/fulfillment-stages",
+    "user-guides/storefront/orders/returns-and-refunds"
   ]
 }
 ```

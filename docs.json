@@ -97,7 +97,8 @@
             "pages": [
               "contributing/how-to-write-docs",
               "contributing/content-strategy",
-              "contributing/components"
+              "contributing/components",
+              "contributing/ai-rules"
             ]
           }
         ]
