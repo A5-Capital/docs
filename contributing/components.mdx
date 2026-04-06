@@ -77,8 +77,8 @@ Use `<Accordion>` for secondary information. For example, troubleshooting steps 
 If you find yourself writing the same exact phrase, warning, or table across multiple pages (for example, the definition of an A5SYNC "Tenant"), you should use a **Snippet**.
 
 ### Creating a Snippet
-1. Create a `_snippets/` folder at the root of the repository. (The underscore tells Mintlify not to build this as a standalone page).
-2. Create a file, e.g., `_snippets/tenant-definition.mdx`.
+1. Use the `snippets/` folder at the root of the repository. (Mintlify natively knows to use this folder for reusable blocks without building them as standalone pages).
+2. Create a file, e.g., `snippets/tenant-definition.mdx`.
 3. Add your content to the file:
 ```mdx
 An **A5SYNC Tenant** represents an isolated instance of the platform for a specific reseller.

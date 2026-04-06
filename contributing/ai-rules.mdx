@@ -26,7 +26,7 @@ Copy everything below the line and provide it to your AI tool before asking it t
    - Create a subfolder.
    - Separate the Administrative / Configuration tasks from the Daily Usage tasks.
    - Ensure no file is longer than ~150 lines.
-4. **DRY Principle (Don't Repeat Yourself):** If you are writing a piece of content that applies to multiple areas (e.g., "What is a Tenant?", "How to authenticate"), do not repeat the text. Instead, create a reusable snippet inside the `_snippets/` folder and import it using `<Snippet file="filename.mdx" />`.
+4. **DRY Principle (Don't Repeat Yourself):** If you are writing a piece of content that applies to multiple areas (e.g., "What is a Tenant?", "How to authenticate"), do not repeat the text. Instead, create a reusable snippet inside the `snippets/` folder and import it using `<Snippet file="filename.mdx" />`.
 5. **Updating Navigation:** If you create a new `.mdx` file, you **must** immediately update `docs.json` to link it under the correct `tab` and `group` array, omitting the `.mdx` extension.
 6. **Components over Text:** Do not write a wall of text for sequence tasks. If a task has 3 or more sequential steps, use the Mintlify `<Steps>` and `<Step>` components. If providing alternative code examples or OS instructions, use the Mintlify `<Tabs>` and `<Tab>` components.
 7. **Writing Style:** Use Active Voice. Keep sentences short. Always **bold** UI elements that the user must click or interact with.
@@ -38,7 +38,7 @@ Copy everything below the line and provide it to your AI tool before asking it t
 The most common mistake when using AI is allowing it to copy-paste identical explanations into multiple files. This makes future maintenance impossible.
 
 **AI Rules for DRY:**
-- Always check the `_snippets/` folder before defining a core A5SYNC term.
+- Always check the `snippets/` folder before defining a core A5SYNC term.
 - If you catch the AI defining the same concept twice in a session, instruct it: *"Extract that definition into a snippet and replace both instances with the snippet import."*
 
 ## Deep Dive: Modifying `docs.json`
