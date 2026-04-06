@@ -86,6 +86,30 @@ When writing Developer APIs or configurations, use standard API blocks:
 
 To see your changes live while you type, run the following in your terminal from the root folder:
 ```bash
-mint dev
+npx mintlify dev
 ```
 Wait for the server to start, and open `http://localhost:3000` in your browser.
+
+---
+
+## 5. Git Strategy & Review Process
+
+All documentation updates must be reviewed using GitHub Pull Requests to ensure quality and to leverage Mintlify's automatic **Preview Deployments**.
+
+### Branch Naming Convention
+Never push documentation directly to `main`. Always create a new branch following this naming strategy:
+`[your-name]/[type]/[description]`
+
+*Examples:*
+- `nishan/feature/new-checkout-docs`
+- `alex/fix/typo-in-warehouse`
+- `sarah/update/reseller-auth-steps`
+
+### The Workflow
+1. Cut a new branch using the naming convention above.
+2. Make your `.mdx` edits and update `docs.json` if adding new pages.
+3. Commit and push your branch to GitHub.
+4. **Open a Pull Request** against the `main` branch.
+5. Wait a few seconds on your PR—the Mintlify bot will post a comment with a unique **Preview Link**.
+6. Reviewers will click the Preview Link to visually inspect the documentation changes in a staging environment.
+7. Once approved by a team member, the PR can be merged into `main`, which automatically syncs to the live site!
