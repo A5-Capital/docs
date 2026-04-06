@@ -1,0 +1,47 @@
+---
+title: "Content Strategy & Structure"
+description: "Guidelines on how to structure information, when to break pages apart, and what makes a good read."
+icon: "book-open"
+---
+
+# Content Strategy
+
+A5SYNC relies heavily on clear, scannable, and actionable documentation. When documenting features across our various portals (Storefront, Reseller Portal, etc.), it's vital to follow a consistent pacing strategy.
+
+## The "One Read" Philosophy
+Every page in the A5SYNC docs should represent **one specific concept or user goal**. A reader should be able to open a page, understand the immediate context, achieve the goal, and leave.
+
+**A good read should contain:**
+1. **A clear title & description:** Set expectations immediately in the YAML frontmatter.
+2. **Context (1-2 sentences):** Explain *why* the user needs this feature or *what* it does.
+3. **Prerequisites (if any):** Does the user need admin permissions? State it early.
+4. **Actionable Steps:** Ordered lists outlining exactly what to click.
+5. **Expected Outcome:** A brief description or screenshot of what success looks like.
+
+## Page Length & Sections
+
+### When to Create a Subsection (Folder)
+**Rule of Thumb:** If an overarching topic (e.g., "Checkout Settings") requires more than 3 distinct H2 (`##`) sections that take more than 2-3 scrolls to read, **it is too long.**
+
+* **Bad:** Having a single `checkout.mdx` file that explains how to configure taxes, manage shipping rules, customize the UI, and handle abandoned carts.
+* **Good:** Creating a folder `user-guides/storefront/checkout/` and breaking it into:
+  - `taxes.mdx`
+  - `shipping-rules.mdx`
+  - `abandoned-carts.mdx`
+
+### Grouping in `docs.json`
+When you break a topic into sub-files, group them nicely in `docs.json` so the sidebar remains clean:
+```json
+{
+  "group": "Checkout Configurations",
+  "pages": [
+    "user-guides/storefront/checkout/taxes",
+    "user-guides/storefront/checkout/shipping-rules"
+  ]
+}
+```
+
+## Tone and Formatting Guidelines
+- **Use Active Voice:** Start action steps with a verb. ("Click the Save button" > "The Save button should be clicked").
+- **UI Elements:** Always **bold** UI elements. (e.g., Go to **Settings** > **Billing**).
+- **Code Blocks:** Use syntax highlighting for everything. If presenting a JSON payload, always format it correctly with ```json.

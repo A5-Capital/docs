@@ -1,0 +1,95 @@
+---
+title: "Components, Assets & Snippets"
+description: "How to use Mintlify's visual components and build reusable documentation elements."
+icon: "puzzle-piece"
+---
+
+# Components & Assets
+
+Mintlify offers incredible interactive components to break up walls of text. Use them liberally to make A5SYNC documentation feel premium.
+
+---
+
+## 1. Using Assets (Images & Videos)
+
+A good documentation page supplements text with visuals, but visuals should never *replace* text. 
+
+### Where to store assets
+Always place images and videos in the `images/` directory at the root of the repository. Create sub-folders for organization (e.g., `images/storefront/cart-config-1.png`).
+
+### How to use them
+Reference them using standard markdown or HTML tags with an **absolute path** starting with `/images/`.
+
+```html
+<!-- Recommended approach with alt-text -->
+<img src="/images/storefront/cart.png" alt="Cart Dashboard" />
+```
+
+**When to use an asset:**
+- Use a screenshot to show the final state of a complex configuration setting.
+- Use a short looping GIF/MP4 to demonstrate a multi-step UI flow (like mapping a brand).
+
+---
+
+## 2. Interactive Components
+
+### Steps
+When guiding a user through a sequence (like installing an integration), wrap your content in the `<Steps>` component visually string it together.
+
+```md
+<Steps>
+  <Step title="First Step">
+    Go to **Settings**.
+  </Step>
+  <Step title="Second Step">
+    Click **Add Integration**.
+  </Step>
+</Steps>
+```
+
+### Tabs
+Use `<Tabs>` when you need a user to make a choice between mutually exclusive contexts (e.g., choosing between Windows or Mac, or choosing between REST and GraphQL). Do not use Tabs for consecutive steps.
+
+```md
+<Tabs>
+  <Tab title="cURL">
+    `curl -X GET "https://api.a5sync.com"`
+  </Tab>
+  <Tab title="Node.js">
+    `axios.get("https://api.a5sync.com")`
+  </Tab>
+</Tabs>
+```
+
+### Accordions (Expandables)
+Use `<Accordion>` for secondary information. For example, troubleshooting steps or deep-dive FAQs that most users don't need to read.
+
+```md
+<Accordion title="Why is my sync failing?">
+  Check your API rate limits in the developer dashboard.
+</Accordion>
+```
+
+---
+
+## 3. Reusable Components (Snippets)
+
+If you find yourself writing the same exact phrase, warning, or table across multiple pages (for example, the definition of an A5SYNC "Tenant"), you should use a **Snippet**.
+
+### Creating a Snippet
+1. Create a `_snippets/` folder at the root of the repository. (The underscore tells Mintlify not to build this as a standalone page).
+2. Create a file, e.g., `_snippets/tenant-definition.mdx`.
+3. Add your content to the file:
+```mdx
+An **A5SYNC Tenant** represents an isolated instance of the platform for a specific reseller.
+```
+
+### Importing a Snippet
+You can inject that snippet endlessly across any page by using the `<Snippet>` element:
+
+```mdx
+# Reseller Basics
+<Snippet file="tenant-definition.mdx" />
+```
+
+This ensures we only have to update the definition in one place!

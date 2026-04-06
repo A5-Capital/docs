@@ -95,7 +95,9 @@
           {
             "group": "Contributing",
             "pages": [
-              "contributing/how-to-write-docs"
+              "contributing/how-to-write-docs",
+              "contributing/content-strategy",
+              "contributing/components"
             ]
           }
         ]
