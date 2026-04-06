@@ -110,6 +110,11 @@ Never push documentation directly to `main`. Always create a new branch followin
 2. Make your `.mdx` edits and update `docs.json` if adding new pages.
 3. Commit and push your branch to GitHub.
 4. **Open a Pull Request** against the `main` branch.
-5. Wait a few seconds on your PR—the Mintlify bot will post a comment with a unique **Preview Link**.
-6. Reviewers will click the Preview Link to visually inspect the documentation changes in a staging environment.
-7. Once approved by a team member, the PR can be merged into `main`, which automatically syncs to the live site!
+5. **Create a Custom Preview (Important!)**: To allow reviewers (Team Leads, QA, Management) to see exactly what your changes look like before merging:
+   - Log into the Mintlify Dashboard.
+   - Navigate to the **Previews** section.
+   - Click **+ Create custom preview**.
+   - Enter your exact branch name (e.g. `nishan/feature/sample-docs`).
+   - Click **Create preview** to generate a secret staging link.
+6. Share the Preview Link with the team.
+7. Once the team approves the changes on GitHub, simply hit Merge! Mintlify will take over and sync it straight to `docs.a5sync.com`.
