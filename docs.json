@@ -12,8 +12,8 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Main Website",
-          "icon": "globe",
+          "anchor": "Visit Home",
+          "icon": "house",
           "color": {
             "light": "#7676FF",
             "dark": "#7676FF"
