@@ -1,0 +1,91 @@
+---
+title: "How to Write Documentation"
+description: "A complete guide on contributing to A5SYNC Docs"
+icon: "pen-to-square"
+---
+
+# Contributing to A5SYNC Docs
+
+Welcome! This guide explains exactly how our team creates, organizes, and writes documentation for A5SYNC inside this repository (`a5sync-docs`). 
+
+We use [Mintlify](https://mintlify.com/) to build these docs. Pages are written in `MDX` (Markdown + JSX), and our navigation structure is manually controlled by the `docs.json` file.
+
+---
+
+## 1. Create a new MDX page
+
+When you are documenting a feature, locate the correct product folder (e.g. `user-guides/storefront/` or `internal-docs/`). 
+
+Create a new file there with the `.mdx` extension, for example: `user-guides/storefront/cart-management.mdx`
+
+At the top of every file, **you must include YAML frontmatter**:
+```yaml
+---
+title: "Cart Management"
+description: "How to manage the checkout cart"
+icon: "cart-shopping"
+---
+```
+
+## 2. Link your page in `docs.json`
+
+A new page **will not appear on the website** until you link it in `docs.json`. 
+
+Open `docs.json` and locate the correct `tab` and `group`. Add the file path (without the `.mdx` extension) to the `pages` array:
+
+```json
+{
+  "group": "Storefront",
+  "pages": [
+    "user-guides/storefront/introduction",
+    "user-guides/storefront/cart-management" 
+  ]
+}
+```
+
+*Note: You can create subfolders! If you made `user-guides/storefront/cart/settings.mdx`, the path in `docs.json` would be `"user-guides/storefront/cart/settings"`.*
+
+---
+
+## 3. Style Preferences & Guidelines
+
+Based on our organizational rules, please adhere to the following when writing:
+
+- **Active Voice:** Use active voice and write in the second person ("you"). 
+- **Conciseness:** Keep sentences concise — one idea per sentence.
+- **Headings:** Use **sentence case** for all headings.
+- **UI Elements:** Bold text for UI elements. Example: Click **Settings** and then **Save**.
+- **Formatting:** Use code blocks (backticks) for file names, commands, paths, and code references.
+
+---
+
+## 4. Useful Mintlify Features
+
+Mintlify provides powerful components out-of-the-box. 
+
+### Callouts
+Use callouts to draw attention to important details:
+
+```md
+<Note>This is a standard note.</Note>
+<Warning>This is a warning!</Warning>
+<Info>Helpful information goes here.</Info>
+<Tip>Pro-tip to improve your workflow.</Tip>
+```
+
+### Response / Output Blocks
+When writing Developer APIs or configurations, use standard API blocks:
+
+```md
+<ResponseField name="user_id" type="string" required>
+  The unique identifier for the user.
+</ResponseField>
+```
+
+### Local Development
+
+To see your changes live while you type, run the following in your terminal from the root folder:
+```bash
+mint dev
+```
+Wait for the server to start, and open `http://localhost:3000` in your browser.

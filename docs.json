@@ -1,86 +1,101 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "A5SYNC Docs",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#7676FF",
+    "light": "#8A8AFF",
+    "dark": "#5C5CFF"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.ico",
   "navigation": {
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "icon": "book-open-cover",
+          "anchor": "Main Website",
+          "icon": "globe",
           "color": {
             "light": "#7676FF",
             "dark": "#7676FF"
           },
-          "href": "https://mintlify.com/docs"
-        },
-        {
-          "anchor": "Blog",
-          "icon": "newspaper",
-          "href": "https://mintlify.com/blog"
+          "href": "https://a5sync.com"
         }
       ]
     },
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Storefront",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Storefront Guide",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "user-guides/storefront/introduction"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Reseller Portal",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Reseller Hub",
             "pages": [
-              "api-reference/introduction"
+              "user-guides/reseller-portal/introduction"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "User Portal",
+        "groups": [
           {
-            "group": "Endpoint examples",
+            "group": "User Management",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "user-guides/user-portal/introduction"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "SyncWarehouse",
+        "groups": [
+          {
+            "group": "Warehouse Ops",
+            "pages": [
+              "user-guides/warehouse/introduction"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Mobile Portal",
+        "groups": [
+          {
+            "group": "Mobile App",
+            "pages": [
+              "user-guides/mobile-portal/introduction"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Developer API",
+        "groups": [
+          {
+            "group": "API Reference",
+            "pages": [
+              "developer-api/introduction"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Contributor Guide",
+        "groups": [
+          {
+            "group": "Contributing",
+            "pages": [
+              "contributing/how-to-write-docs"
             ]
           }
         ]
@@ -94,33 +109,22 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "← All Products",
+        "href": "/"
+      },
+      {
+        "label": "Contact",
+        "href": "https://a5sync.com/contact"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Visit A5SYNC",
+      "href": "https://a5sync.com/"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
     }
   }
 }
