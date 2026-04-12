@@ -59,7 +59,13 @@
       },
       {
         "tab": "Reseller Portal",
-        "groups": [
+        "pages": [
+          {
+            "group": "Customers",
+            "pages": [
+              "contacts"
+            ]
+          },
           {
             "group": "Reseller Hub",
             "pages": [
