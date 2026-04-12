@@ -1,0 +1,104 @@
+---
+title: "Contacts"
+description: "How to manage individual customer contacts and organization members within the platform."
+---
+
+## Overview
+
+The **Contacts** sub-module is your primary ledger for managing individual customer relationships, tracking their transaction history, and managing their associations with organizations.
+
+## Navigating the Contact Ledger
+
+Access the main list of all customers to search, filter, and review high-level data.
+
+### Steps to Access
+
+1. Navigate to **Customers \> Contacts** via the sidebar.
+2. Review the ledger columns for a quick overview:
+   - **Customer**: The name of the individual.
+   - **Email**: Primary contact email.
+   - **Organization Name**: Linked company profile.
+   - **Blocked Status**: Indicates if the contact is currently restricted.
+   - **Joined Date**: When the contact was first added to the system.
+
+### Customer Statistics
+
+Click the arrow to expand the summary cards at the top of the ledger for an instant snapshot of your database health:
+
+- **Total Customers:** The total number of unique contact records currently in your system.
+- **Active Customers:** A count of all individuals with an unrestricted account status who can actively place orders and request quotes.
+- **Blocked Customers:** A count of all accounts that have been manually restricted from platform interactions.
+
+### Searching and Filtering
+
+- **Search**: Use the input field **"Search by customer name, email, or phone number"** to find specific records.
+- **Filter**: Apply the **"Block Status"** filter to refine results based on account standing.
+
+---
+
+## Customer Detail Page
+
+Click on a specific **Contact Name** in the ledger to view their full profile and history.
+
+The Contacts page serves as more than just a directory it is a functional command center. You can observe and interact with the  sales lifecycle from inquiry to  fulfillment without ever leaving the customer’s profile.
+
+### Cards Summary
+
+View the summary cards at the top of the page for an instant snapshot of:
+
+- **Total Orders**: Count of all successful purchases.
+- **Total Amount**: Cumulative monetary value of the customer.
+- **Total Quotes**: Number of quotes requested.
+- **Status**: Current account standing.
+
+### Managing Profile Information
+
+Within the **Customer Information** section, use the **Edit** button to keep your records current and manage account access. Clicking this button opens a management pane where you can update the following:
+
+- **Primary Identity:** Modify the **First Name** and **Last Name** to ensure accurate personalization in communication and invoicing.
+- **Communication Channels:** Update the **Phone Number** to maintain a direct line for order updates and support.
+- **Access Control:** Utilize the **Block Status Toggle** to instantly restrict or restore a customer’s ability to interact with the platform.
+
+<Note>
+   Blocking a customer is a global action. Once toggled, the customer will be unable to place new orders or request quotes until they are manually unblocked. 
+</Note>
+
+### Orders Information
+
+Track purchase history with granular controls and detailed row data:
+
+- **Toggle Views**: Switch between **Personal Orders** and **Organization Orders** tabs.
+- **Search & Filter**: Find specific transactions using the **Order ID** search value and refine by **Order Status**.
+- **Order Table Data**: Each entry provides visibility into:
+  - **ID**: The unique order reference number.
+  - **Created By**: The account responsible for the order.
+  - **Subtotal**: The financial value of the order.
+  - **Status/Type**: Current state (e.g., Pending) and payment method (e.g., Check).
+- **Order Actions**: Click the three-dot menu icon `⋮` on any order row to:
+  - **View Order**: See full transaction details.
+  - **Cancel Order**: Stop the order process.
+  - **Archive Order**: Move the record to historical storage.
+
+### Quotes Information
+
+Manage price inquiries and estimates with extended lifecycle actions:
+
+- **Toggle Views**: Switch between **Personal Quotes** and **Organization Quotes** tabs.
+- **Search & Filter**: Find specific quotes using the **Quote ID** search value and refine by **Quote Status**.
+- **Quote Table Data**: Detailed visibility into:
+  - **ID & Title**: The reference number and descriptive name of the quote.
+  - **Quoted by**: The user account that generated the quote.
+  - **Amount & Payment**: The total value and preferred payment method (e.g., ACH, Hubspot, Check).
+  - **Status**: Current standing (e.g., Expired, Completed).
+  - **Dates**: Tracks both the **Created at** and **Expired at** timestamps.
+- **Quote Actions**: Click the three-dot menu icon `⋮` to access:
+  - **View/Edit Quote**: Review or modify quote details.
+  - **Generate Quote Link**: Create a shareable URL for the customer.
+  - **Duplicate Quote**: Create a new quote based on existing data.
+  - **Archive Quote**: Remove the quote from the active list.
+
+---
+
+<Tip>
+  Clicking on a customer's Email Address or Phone Number within the Information section will automatically launch your device's default email client or dialer overlay for immediate communication.
+</Tip>
