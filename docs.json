@@ -61,15 +61,15 @@
         "tab": "Reseller Portal",
         "pages": [
           {
-            "group": "Customers",
-            "pages": [
-              "contacts"
-            ]
-          },
-          {
             "group": "Reseller Hub",
             "pages": [
               "user-guides/reseller-portal/introduction"
+            ]
+          },
+          {
+            "group": "Customers",
+            "pages": [
+              "user-guides/reseller-portal/contacts"
             ]
           }
         ]
