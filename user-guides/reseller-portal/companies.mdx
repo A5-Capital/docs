@@ -92,12 +92,24 @@ Configure the transactional rules, credit limits, and pricing markups that gover
 
 <Tabs>
   <Tab title="Credit Configuration">
-    Manage financial risk and purchasing power.
+    Manage how an organization handles credit, limits, and payment rules to ensure smooth order processing and invoicing.
 
-    - **Modes**: Review if the configuration in **Settings** is in **Custom** or **Global** state.
-    - **Toggles**: Enable or disable **Unlimited Credit Limit** and **Allow Past AR Credit**.
-    - **Persistence**: Click the red **Apply Credit Configuration** button to save.
-    - **Reset**: Click **Reset to Default** to restore global settings for the organization.
+    **Adjust Company Credit Settings**
+
+    Update the following toggles to define how the organization manages debt:
+
+    - **Unlimited Credit Limit**: Enable this to remove all credit caps for the organization.
+    - **Allow Past AR Credit**: Toggle this to allow the organization to use credit even if they have outstanding Accounts Receivable (AR) balances.
+
+    **Save or Reset Changes**
+
+    - **Apply Configuration**: Click the red **Apply Credit Configuration** button to save your changes. Always refresh the page to verify that the updated settings persist.
+    - **Restore Defaults**: Click **Reset to Default** to discard custom settings and revert the organization to your global credit behavior.
+
+    **Important Considerations**
+
+    - **Visibility**: Review the credit notes and rule text displayed on the page to ensure accuracy before saving.
+    - **Downstream Impact**: Credit readiness directly affects order flow. Incorrect mapping or settings can block **quote acceptance**, stall **order progression**, or cause errors during **invoice generation**.
   </Tab>
   <Tab title="Price Adjustments">
     Control margins through storefront markups.
