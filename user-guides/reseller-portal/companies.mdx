@@ -1,72 +1,152 @@
 ---
-title: "Companies -INCOMPLETE-"
+title: "Companies"
+description: "Discover, monitor, and configure business entities and their commercial settings."
 icon: "buildings"
 ---
 
-## Overview
-
-The **Companies** sub-module allows you to manage B2B entities (Organizations). From this module, you can control organizational memberships, set custom shipping and credit rules, and manage tax exemptions or price markups specific to a business entity.
-
-## Navigating the company ledger
-
-Access the list of all business entities to monitor their high-level performance and status.
-
-### Steps to access
-
-1. Navigate to `Customers > Companies` via the sidebar.
-2. Review organization statistics directly in the ledger:
-   - **Total Paid Orders**
-   - **Total Unpaid Orders**
-   - **Total Paid Amount**
-   - **Total Purchased Items**
-
-### Searching and filtering
-
-- Use the **Search by organization ID, name** input field to locate a specific business.
-- Apply the **Block Status** filter to refine your view (e.g., viewing only **Not Blocked** entities).
+The **Companies (Organizations)** module is the central business entity layer of the Reseller Portal. It provides the legal and commercial context required for downstream workflows in Quotes, Orders, Finance, and Approvals.
 
 ---
 
-## Organization detail page
+## 1. Discovery and statistics
 
-Click a specific **Organization Name** or **ID** to access the multi-tabbed management interface.
+The **Companies Ledger** is your entry point for monitoring business entities. Access it by navigating to **Customers \> Companies** in the sidebar.
 
-### Overview and member management
+<Steps>
+  <Step title="Search and filter">
+    Use the **Search by organization ID, name** input field to find matching organization records. Filter the list by **Block Status** to view **Not Blocked** or active entities.
+  </Step>
+  <Step title="Review summary data">
+    The top summary cards and table rows display stable, organization-level data:
 
-- **Update business details**: Click the **Edit** button in the **Overview** tab to modify the **Organization Name**, **Domain**, or **Business Number**.
-- **Manage members**: Within the **Members** tab, you can search for members by **Name**, **Email**, or **Phone Number** and filter them by **Block Status**.
-- **Invite users**: Navigate to the **Invitations** tab and click the red **\+ Invite Member** button. You can monitor invitation metadata such as **Email**, **Role**, **Status**, and **Sent At**.
-
-### Orders and shipping rules
-
-- **Transaction history**: In the **Orders** tab, search for specific transactions via the **Order ID** input or apply the **Order Status** filter (e.g., **Delivered**, **Pending**, **Confirmed**).
-- **Shipping logic**: Navigate to the **Shipping** tab to:
-  - Toggle the **Free Shipping** switch to **Enabled**.
-  - Define a **Minimum Order Value**.
-  - Click **Update Rules** to save your changes.
-
-### Financial and tax configurations
-
-- **Credit configuration**: In the **Credit Configuration** tab, you can toggle the **Unlimited Credit Limit** and **Allow Past AR Credit** switches. Click **Apply Credit Configuration** to save, or **Reset to Default** to restore global settings.
-- **Tax exemptions**: Use the **Tax Exempt** tab to review jurisdictions across the **United States**, **Canada**, and **Mexico**. Click **Add Tax Exempt Request** to start a new filing.
-- **Tax history**: Review historical filings in the **Tax Exempt Requests** tab. You can filter by **Status** or click the **Red Trash Icon** to delete a specific entry.
-
-### Price adjustments
-
-Navigate to the **Price Adjustments** tab to manage the **Storefront Markup Configuration**:
-
-- Click **Update Markup** to modify the global **Standard Markup** percentage.
-- Click **\+ Add Price Adjustment** to configure markups for specific products or brands.
-
-### Contact cards
-
-In the **Contacts** tab, manage the organization's point-of-contact grid:
-
-- Click **\+ Add Contact** to create a new record.
-- Click the **Red Pencil Icon** on a contact card to update the **Name**, **Role Badge**, or **Phone Number**.
+    - **Total Paid Orders** and **Total Unpaid Orders**.
+    - **Total Paid Amount** (Cumulative revenue).
+    - **Total Purchased Items** (Volume).
+  </Step>
+</Steps>
 
 ---
 
-<Note>
-   Ensure all business documentation is verified before clicking Approve Request, as this promotion grants the entity access to organization-specific pricing and credit terms. 
-</Note>
+## 2. Profile and identity
+
+Manage the core identity of the business and the primary personnel associated with the organization.
+
+<Tabs>
+  <Tab title="Overview">
+    This tab houses the latest saved organization information and access status.
+
+    1. **Review Stats**: View the organization-specific summary cards for orders and amounts.
+    2. **Edit Profile**: Click **Edit** to modify the **Organization Name**, **Domain**, or **Business Number**.
+    3. **Validate**: The system validates required fields before saving to ensure data integrity for downstream modules.
+    4. **Audit**: Monitor **Access Status** (e.g., **Not Blocked**) and timestamps for **Created On** and **Last Updated**.
+
+    <Warning>
+      Updates to identity data propagate to all downstream modules. Incorrect mapping here can distort invoice ownership, tax treatment, and approval confidence.
+    </Warning>
+  </Tab>
+  <Tab title="Members">
+    View platform users linked to this organization.
+
+    - **Search & Filter**: Find members by name, email, or phone, and filter by **Block Status**.
+    - **Table Data**: Review row-level values including **Customer**, **Role** (e.g., Owner), **Organization Name**, **Total Orders**, **Blocked** status, and **Joined** date.
+    - **Readiness**: Ensure member readiness values (e.g., **Active**) are correctly rendered.
+  </Tab>
+  <Tab title="Invitations">
+    Manage the lifecycle of new organizational user invites.
+
+    1. **Invite**: Click the red **\+ Invite Member** button to open the modal.
+    2. **Submit**: Enter user details and assign a **Role**. Once saved, the invite appears in the ledger.
+    3. **Monitor**: Review the **Email**, **Role**, **Status**, **Expires At**, and **Sent At** columns.
+    4. **Resend**: Click the **↺ Resend** button to re-trigger the invitation email.
+  </Tab>
+  <Tab title="Contacts">
+    Manage primary points of contact for manual business coordination.
+
+    - **Add**: Click the red **\+ Add Contact** button to create a new organizational contact.
+    - **Edit**: Click the **Pencil Icon** on a contact card to update the name, role badge, or phone number.
+    - **Delete**: Click the red **Trash Icon** to remove a contact member.
+    - **Metadata**: Each card displays the **Name**, **Role Badge**, and **Phone Number**.
+  </Tab>
+</Tabs>
+
+---
+
+## 3. Transactional history
+
+The **Orders** tab within the organization detail provides a centralized view of all business-linked transactions.
+
+### Order management
+
+- **Search & Filter**: Search by **Order ID** or filter by **Order Status** (e.g., Delivered, Pending, Confirmed, Partial).
+- **Table Columns**: Visibility into **ID, Customer Name, Created By, Tags, Subtotal, Status, Order Type (Customer/Quote), and Payment (Card/ACH)**.
+- **Row Actions**: Use the three-dot menu `⋮` to:
+  - **View Order**: Access full transaction details.
+  - **Cancel Order**: Stop a pending order process.
+  - **Archive Order**: Move the record to historical storage.
+
+---
+
+## 4. Commerce and financials
+
+Configure the transactional rules, credit limits, and pricing markups that govern organization behavior.
+
+<Tabs>
+  <Tab title="Credit Configuration">
+    Manage financial risk and purchasing power.
+
+    - **Modes**: Review if the configuration in **Settings** is in **Custom** or **Global** state.
+    - **Toggles**: Enable or disable **Unlimited Credit Limit** and **Allow Past AR Credit**.
+    - **Persistence**: Click the red **Apply Credit Configuration** button to save.
+    - **Reset**: Click **Reset to Default** to restore global settings for the organization.
+  </Tab>
+  <Tab title="Price Adjustments">
+    Control margins through storefront markups.
+
+    - **Global Markup**: Click **Update Markup** to modify the global **Standard Markup %** for the organization.
+    - **Targeted Rules**: Click the red **\+ Add Price Adjustment** button to configure specific product- or brand-level rules.
+    - **Table Data**: Displays **Adjustment Type, Target, MPN / Brand Identifier, Markup %, Spiked Markup %, and Spike Expiry**.
+    - **Actions**: Use row-level controls to edit or **Delete** specific adjustment entries.
+  </Tab>
+</Tabs>
+
+---
+
+## 5. Shipping and compliance
+
+Handle jurisdictional logistics and tax-exempt status to ensure accurate checkout and reporting.
+
+<Tabs>
+  <Tab title="Shipping">
+    Define organization-wide shipping rules.
+
+    1. **Toggle**: Enable the **Free Shipping** switch to **Active**.
+    2. **Thresholds**: Enter a **Minimum Order Value** to enforce free shipping.
+    3. **Persistence**: Click **Update Rules** to save or **Deactivate Rules** to disable enforcement.
+    4. **History**: Review the history table showing **Type, Image, Free Shipping On, Created At, and Expired At**.
+  </Tab>
+  <Tab title="Tax Exempt">
+    Review tax status across the US, Canada, and Mexico.
+
+    - **Jurisdiction Cards**: View cards showing exempt vs. taxable summary counts for each region.
+    - **State Lists**: Review the taxable/exempt status of specific provinces or states.
+    - **Initiate**: Click the red **Add Tax Exempt Request** button to start a new jurisdictional exemption flow.
+
+    <Info>
+      Approved tax-exempt state supports downstream quote/invoice tax treatment of **\$0.00** where applicable.
+    </Info>
+  </Tab>
+  <Tab title="Tax Exempt Requests">
+    Audit the history of all tax exemption attempts.
+
+    - **Discovery**: Search requests by **Organization ID/Name** and filter by **Status**.
+    - **Table Data**: Review **Organization, Status, Request Message, and Request Date**.
+    - **Cleanup**: Click the red **Trash Icon** to delete a specific request entry.
+    - **Persistence**: Deleted requests are removed from the ledger immediately, maintaining synchronization between the frontend and backend.
+  </Tab>
+</Tabs>
+
+---
+
+<Tip>
+  **Pro-tip:** Audit visibility is critical. All changes to company profile, credit, tax, or membership are traceable to ensure accountability across Quote, Order, and Finance processes.
+</Tip>
