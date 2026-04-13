@@ -1,0 +1,86 @@
+---
+title: "Approvals"
+description: "Manage and process organization registration and update requests."
+icon: "user-check"
+---
+
+## Overview
+
+The **Approvals** sub-module allows you to manage organization-level requests within the A5SYNC platform. You can review pending registrations, verify business documentation, and either approve or reject requests to manage your customer base effectively.
+
+<Info>
+  Organization requests are categorized into **Create** (new registrations) or **Update** (changes to existing profiles) types.
+</Info>
+
+## Managing the Request Ledger
+
+Access the central repository of all organization requests to filter and find specific submissions.
+
+1. Navigate to **Customers** > **Approvals** via the sidebar.
+2. Use the **Search by organization ID, name** input field to locate a specific record.
+3. Use the **Status** filter to view **Pending**, **Approved**, or **Rejected** requests.
+4. Use the **Type** filter to distinguish between **Create** and **Update** requests.
+
+### Ledger Columns
+The ledger provides a high-level overview of the following data:
+* **Organization**: The name of the business entity.
+* **Domain**: The associated web domain.
+* **Status**: Current state of the request.
+* **Type**: The nature of the request (Create vs. Update).
+* **Joined Date**: The timestamp of the initial submission.
+
+---
+
+## Creating an Organization Manually
+
+If you need to bypass the standard user-facing registration flow, you can initiate a request manually.
+
+<Steps>
+  <Step title="Open Creation Modal">
+    Click the red **+ Create Organization** button.
+  </Step>
+  <Step title="Select or Create Customer">
+    Search for an existing customer by name, email, or company. If the contact does not exist, click the **+ Create new customer** link to initiate a new record.
+  </Step>
+  <Step title="Enter Organization Details">
+    Enter the **Organization Name** and the optional **Domain**.
+  </Step>
+  <Step title="Upload Documentation">
+    Use the **Click to upload or drag and drop** area to attach necessary business verification files.
+  </Step>
+  <Step title="Submit">
+    Click the **Create Organization** button to finalize the submission.
+  </Step>
+</Steps>
+
+---
+
+## Reviewing and Processing Requests
+
+To take action on a request, you must enter the **Request Detail** page.
+
+### Reviewing Details
+1. Click a specific **Organization Name** or the **View Detail** link.
+2. Review the **Organization Details** section for the Business Number and Domain.
+3. Review the **Requested By** section to verify customer contact details and their active status.
+4. Click the **Preview** button on uploaded **Verification Documents** to view PDFs or images directly.
+
+### Taking Action
+Use the following actions to process the request:
+
+<Tabs>
+  <Tab title="Approve">
+    Click the green **Approve Request** button. This promotes the request to an active **Organization** status within the system.
+  </Tab>
+  <Tab title="Reject/Request Info">
+    * Click the red **Request More Documents** button to notify the requester of missing information.
+    * Click the red **Reject Request** button to decline the registration entirely.
+  </Tab>
+  <Tab title="Delete">
+    To remove a record permanently from the ledger, click the red **Delete** (trash) icon in the request list.
+  </Tab>
+</Tabs>
+
+<Tip>
+  Check the **Activity Log** at the bottom of the detail page to see the full chronological history of any comments or status changes for the request.
+</Tip>
