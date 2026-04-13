@@ -62,6 +62,7 @@
         "pages": [
           {
             "group": "Customers",
+            "icon": "user-group-simple",
             "pages": [
               "user-guides/reseller-portal/contacts",
               "user-guides/reseller-portal/companies",
