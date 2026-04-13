@@ -105,7 +105,12 @@ Configure the transactional rules, credit limits, and pricing markups that gover
     - **Global Markup**: Click **Update Markup** to modify the global **Standard Markup %** for the organization.
     - **Targeted Rules**: Click the red **\+ Add Price Adjustment** button to configure specific product- or brand-level rules.
     - **Table Data**: Displays **Adjustment Type, Target, MPN / Brand Identifier, Markup %, Spiked Markup %, and Spike Expiry**.
+    - **Spiked markup:** Special type of **Markup** that can be set for a limited time for a particular organization.
     - **Actions**: Use row-level controls to edit or **Delete** specific adjustment entries.
+
+    <Info>
+      The markup and pricing rules established for an organization are applied consistently across all touchpoints, ensuring that both quotes and the storefront reflect the same unified pricing structure for that client.
+    </Info>
   </Tab>
 </Tabs>
 
@@ -119,29 +124,36 @@ Handle jurisdictional logistics and tax-exempt status to ensure accurate checkou
   <Tab title="Shipping">
     Define organization-wide shipping rules.
 
-    1. **Toggle**: Enable the **Free Shipping** switch to **Active**.
-    2. **Thresholds**: Enter a **Minimum Order Value** to enforce free shipping.
-    3. **Persistence**: Click **Update Rules** to save or **Deactivate Rules** to disable enforcement.
-    4. **History**: Review the history table showing **Type, Image, Free Shipping On, Created At, and Expired At**.
-  </Tab>
-  <Tab title="Tax Exempt">
-    Review tax status across the US, Canada, and Mexico.
-
-    - **Jurisdiction Cards**: View cards showing exempt vs. taxable summary counts for each region.
-    - **State Lists**: Review the taxable/exempt status of specific provinces or states.
-    - **Initiate**: Click the red **Add Tax Exempt Request** button to start a new jurisdictional exemption flow.
-
-    <Info>
-      Approved tax-exempt state supports downstream quote/invoice tax treatment of **\$0.00** where applicable.
-    </Info>
+    1. **Discovery**: Search for requests by **Organization ID/Name** and narrow your results by **Status**.
+    2. **Review Data**: View essential details, including **Organization, Status, Request Message, and Request Date**, directly in the table.
+    3. **Manage Requests**: Take immediate action on any request:
+       - **Approve**: Verify authenticity and approve the tax exemption.
+       - **Reject**: Decline the tax exemption request if it doesn’t meet requirements.
+       - **Request Documents**: Ask the user for additional documentation to support their claim.
+    4. **Cleanup**: Remove specific entries by clicking the red **Trash Icon**.
   </Tab>
   <Tab title="Tax Exempt Requests">
     Audit the history of all tax exemption attempts.
 
     - **Discovery**: Search requests by **Organization ID/Name** and filter by **Status**.
     - **Table Data**: Review **Organization, Status, Request Message, and Request Date**.
+    - **Interaction**: Requests can be Interaced With :
+      - Approve: Users can Approve Tax Exemption Request after verifying its authenticity.
+      - Reject: Users can reject tax exemption request.
+      - Request for more Documents: Users can Request for More Documents.
     - **Cleanup**: Click the red **Trash Icon** to delete a specific request entry.
-    - **Persistence**: Deleted requests are removed from the ledger immediately, maintaining synchronization between the frontend and backend.
+  </Tab>
+  <Tab title="Tax Exempt">
+    Review tax status across the US, Canada, and Mexico.
+
+    - **Exemption Cards**: View cards showing exempt vs. taxable summary counts for each region.
+    - **State Lists**: Review the taxable/exempt status of specific provinces or states.
+    - **Initiate Tax Exemption**: Click the red **Add Tax Exempt Request** button to start a new tax exemption flow for that organization.
+      - **Create Tax Exemption**: Fill the Form with Required Tax Exemption Documents and details in Additional Message section.
+
+    <Info>
+      Approved tax-exempt state supports downstream quote/invoice tax treatment of **\$0.00** where applicable.
+    </Info>
   </Tab>
 </Tabs>
 
