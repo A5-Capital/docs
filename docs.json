@@ -64,7 +64,8 @@
             "group": "Customers",
             "pages": [
               "user-guides/reseller-portal/contacts",
-              "user-guides/reseller-portal/companies"
+              "user-guides/reseller-portal/companies",
+              "user-guides/reseller-portal/approvals"
             ]
           },
           {
