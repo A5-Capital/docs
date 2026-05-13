@@ -70,6 +70,13 @@
             ]
           },
           {
+            "group": "Quotes",
+            "icon": "newspaper",
+            "pages": [
+              "builder"
+            ]
+          },
+          {
             "group": "Reseller Hub",
             "pages": [
               "user-guides/reseller-portal/introduction"
