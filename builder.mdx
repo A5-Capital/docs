@@ -35,105 +35,417 @@ A quote moves through the system in five distinct stages:
 
 ---
 
-## title: "Builder" description: "The operational heart for creating, editing, and finalizing quotes."
+# Builder
 
-The **Builder** is the operational heart of the module—where quotes are created, edited, reviewed, and finalized.
+Builder is the operational heart of the module — where quotes are created, edited, reviewed, and finalized.
 
-**When to use it:** Every time you start a new proposal, update an existing one, or push a finalized quote into an order.
+**When you'll use it:** Every time you start a new proposal, update an existing one, or push a finalized quote into an order.
 
-### Find a Quote
+### Find a quote
 
 Open **Quotes \> Builder** in the sidebar. The list shows every quote in the system.
 
+To narrow it down:
+
 | Tool | What it does |
 | :-- | :-- |
-| **Status tabs** | Filter by lifecycle stage (Draft, Approval, Ready, etc.) |
-| **My Quotes Only** | Toggle to see only quotes you own |
-| **Search quotes...** | Search by quote title or ID |
-| **All Filters** | Apply advanced filtering |
-| **Sort By** | Reorder the list |
+| Status tabs | Filter by lifecycle stage — All, Draft, Approval, Ready, Completed, Ordered, Cancelled, Expired, Archived |
+| My Quotes Only | Toggle to see only quotes you own |
+| Search quotes... | Search by quote title or ID |
+| All Filters | Apply advanced filtering |
+| Sort By | Reorder the list |
 
----
+Each row shows the Quote ID, title, tags, who quoted it, total amount, payment method, status, created date, expiry date, and a three-dot menu for row-level actions.
 
-### Create a Quote
+### Create a quote
 
-<Steps>
-  <Step title="Start">
-    Click **\+ Create Quote** in the top right.
-  </Step>
-  <Step title="Identify">
-    Enter a **Quote Title** in the modal. Title is required.
-  </Step>
-  <Step title="Initialize">
-    Click **Create New Quote**. The system assigns a unique ID and sets the status to **Draft**.
-  </Step>
-</Steps>
+To create a new quote:
 
-### Build a Complete Quote
+1. Click **\+ Create Quote** in the top right.
+2. Enter a **Quote Title** in the modal that appears. Title is required.
+3. Click **Create New Quote**.
 
-The editor is divided into sections. Recommended workflow:
+The system assigns a unique Quote ID, sets the status to Draft, and opens the editor. From there, you can flesh out the quote in any order — but most teams work top-to-bottom through the editor sections.
 
-1. **Set the Customer**: Always start here. The customer affects tax, shipping, and approval logic.
-2. **Add Shipping Information**: Enter recipient details to update the Summary panel.
-3. **Choose Payment Method**: Select from the dropdown (Card, Check, etc.).
-4. **Add Line Items**: Search by product name or MPN. Adjust quantity or margin as needed.
+### Build a complete quote
 
-<Note>
-  A quote with no customer cannot be approved or converted. This is the step easiest to skip but most likely to cause issues later.
-</Note>
+The editor is divided into the following sections. Below is the recommended order for filling them in.
 
----
+#### 1. Set the customer
 
-## Quote Statuses
+Always start here. The customer affects everything else — tax calculations, shipping accuracy, approval logic, and downstream order mapping.
 
-| Status | Meaning |
+1. In the **Customer** section, click **Search Customer**.
+2. Search by name, email, or company name.
+3. Select the customer from the results.
+
+If the customer doesn't exist yet:
+
+1. Click **Create Customer** instead.
+2. Fill in the new customer's details.
+
+The newly created customer is automatically attached to the quote.
+
+> **Important:** A quote with no customer cannot be approved or converted. This is the step easiest to skip when you're in a hurry — and the one that bites you later.
+
+#### 2. Add shipping information
+
+1. Click **Add Shipping Information** in the **Shipping** section.
+2. Enter the recipient name and delivery address.
+3. **Save**.
+
+The shipping details immediately update the Summary panel.
+
+#### 3. Choose a payment method
+
+1. Open the **Select Payment Method** dropdown.
+2. Pick a method — Card, Check, or whatever your team supports.
+
+The selection saves automatically and is shown both in the editor and in the main Builder list.
+
+#### 4. Add line items
+
+1. Click **\+ Add Item** (or Add your first item if the quote is empty).
+2. Search for a product by name or MPN.
+3. Select the item to add it to the line-item table.
+4. Adjust quantity, unit price, or margin as needed. The Summary panel recalculates instantly.
+5. Repeat for each product.
+
+To remove an item, click the delete action on its row. To reorder items, use **Sort By** inside the Items section.
+
+Each row in the line-item table shows: Title, MPN, Stock, Units, Unit Cost, Margin, Unit Price, Sub-Total, and a delete control.
+
+#### 5. Verify the totals in the Summary panel
+
+The Summary panel stays visible the whole time you're editing. It shows:
+
+- **Sub-Total** — sum of all line items
+- **Tax** — calculated based on customer and company tax rules
+- **Shipping** — based on shipping configuration
+- **Order Total** — final amount
+- **Est Margin** — estimated margin amount and percentage
+
+**Tip:** Watch Est Margin as you adjust prices and quantities. If your team has approval rules tied to margin thresholds, you'll see the moment a quote crosses into territory that triggers review.
+
+### Collaborate on a quote
+
+Below the editor, three tabs handle internal coordination:
+
+| Tab | Use it for |
 | :-- | :-- |
-| **Draft** | Still being assembled; not yet submitted |
-| **Approval** | Waiting on a reviewer to act |
-| **Ready** | Cleared review and ready to send |
-| **Ordered** | Converted into a sales order |
-| **Expired** | Passed its validity date |
+| Comments | Leave timestamped notes, reply to threads, attach files |
+| Activity | Audit trail of every action taken on the quote |
+| Tasks | Work items associated with this specific quote |
 
----
+To leave a comment:
+
+1. Open the **Comments** tab.
+2. Click **Add Quote Comment**.
+3. Type your message. You can attach files or set the comment as **Internal vs. Standard**.
+4. **Save**.
+
+### Quote statuses, in plain English
+
+| Status | What it means |
+| :-- | :-- |
+| Draft | Still being assembled — not yet submitted for review |
+| Approval | Tripped an approval rule and is waiting on a reviewer to act |
+| Ready | Cleared review and is in good shape to send to the customer |
+| Completed | Finalized |
+| Ordered | Converted into a sales order |
+| Cancelled | Manually closed; no longer active |
+| Expired | Passed its expiry date without being acted on |
+| Archived | Stored for record-keeping |
+
+### Convert a quote to an order
+
+When the customer agrees and the quote is finalized:
+
+1. Open the quote in Builder.
+2. Click **Connect to Deal** in the header.
+
+The system creates a Sales Order with the customer, shipping, payment, and line items intact. The quote's status updates and a **View Order** link appears in the header so you can trace the connection.
+
+**Note:** If your admin has enabled **Automatic Order Creation** in Configurations, this conversion can happen automatically for approved quotes — no manual click required.
+
+## Requests
+
+Not every quote starts in Builder. Some come in through a form on your website. Those submissions land here, where your team can read them, decide whether to pursue them, and add internal context before any real quote work begins.
+
+**When you'll use it:** Every morning (or however often submissions arrive) to triage what came in overnight.
+
+### Find a submission
+
+Open **Quotes \> Requests** in the sidebar.
+
+| Tool | What it does |
+| :-- | :-- |
+| Search submissions... | Find a record by submission details |
+| Status tabs | Filter by All, Pending, In Review, Approved, Rejected |
+| All Filters | Apply advanced filtering |
+| Reset | Clear all filters and return to default view |
+
+Each row shows the Submission ID, the originating Form ID, form title, current status, last updated by, and creation date.
+
+### Review a submission
+
+Click any row to open the detail page, which has four sections:
+
+| Section | What's in it |
+| :-- | :-- |
+| Status Information | Current status, last update timestamp, and who made the update |
+| Submitted Data | Everything the customer entered, including product requests with SKU, MPN, requested price, quantity, total value, and profit analytics |
+| Submission Metadata | Submission ID, originating Form ID, and creation/update timestamps for traceability |
+| Notes | Internal collaboration log for review discussion |
+
+### Add notes to a submission
+
+1. Open the submission detail.
+2. Scroll to the **Notes** section.
+3. Click **Add Note** (or Add Your First Note if the section is empty).
+4. Type your note and save.
+
+Notes remain attached to the submission permanently even after it's approved or rejected so the review conversation is never lost.
+
+### Update a submission's status
+
+1. Open the submission detail.
+2. Change the status to one of: **Pending, In Review, Approved, or Rejected**.
+
+The change saves immediately and is reflected in both the detail view and the main ledger.
+
+| Status | Use it when |
+| :-- | :-- |
+| Pending | No one has looked at it yet |
+| In Review | A team member is actively assessing it |
+| Approved | The team has decided to pursue it (start a quote in Builder next) |
+| Rejected | The team has decided not to pursue it |
+
+**Worth knowing:** Approving a request doesn't automatically create a quote. The quote still has to be built in Builder. The Requests area tells you the intake is good; the actual quote work happens separately.
 
 ## Configurations
 
-If Builder is where work happens, Configurations is where the rules are defined.
+If Builder is where work happens, Configurations is where the rules behind the work are defined. The settings here apply to everyone, so they're typically managed by an admin or sales operations lead.
 
-### Approval Rules
+**When you'll use it:** When setting up the module for the first time, or whenever your team's quote policies change.
 
-Approval rules route quotes to a reviewer based on specific risk thresholds (e.g., low margins).
+### Set quote defaults
 
-<Steps>
-  <Step title="Enable">
-    Toggle **Enable Quote Approval** to ON.
-  </Step>
-  <Step title="Define">
-    Click **\+ Add New Rule** and set your Field, Operator, and Value.
-  </Step>
-  <Step title="Save">
-    Click **Save Rules** to apply changes to all new quotes.
-  </Step>
-</Steps>
+These two settings apply to every new quote your team creates.
 
-<Tip>
-  If you enable **Automatic Order Creation**, approved quotes flow directly into Sales Orders without manual intervention.
-</Tip>
+| Setting | What it controls |
+| :-- | :-- |
+| Default Expiration Days | How many days a new quote stays valid before expiring |
+| Shipping Cost Margin % | How shipping costs factor into margin calculations |
 
----
+To update either:
+
+1. Open **Quotes \> Configurations**.
+2. In the **Quote Defaults** section, enter new values.
+3. Click **Save Changes**.
+
+**Tip:** The right number for Default Expiration Days depends on your sales cycle. Set it to 14 if your customers move quickly. Set it to 30 if larger deals take longer to close.
+
+### Enable Automatic Order Creation
+
+This single toggle is more consequential than it looks. When enabled, approved quotes can move directly into Sales Order flow without anyone clicking Connect to Deal manually.
+
+To toggle it:
+
+1. Open **Quotes \> Configurations**.
+2. Find the **Automatic Order Creation** section.
+3. Toggle **Enable Automatic Order Creation** ON or OFF.
+4. Click **Save Changes**.
+
+| When ON | When OFF |
+| :-- | :-- |
+| Faster handoff. Approved quotes flow directly into orders. | Slower but more deliberate. Every quote-to-order handoff requires a manual click. |
+| Best for teams that trust their approval rules to catch issues. | Best for teams that want a human verification step before order creation. |
+
+### Configure approval rules
+
+Approval rules tell the system: "When a quote looks like this, route it to a reviewer before letting it go forward."
+
+#### Step 1 — Enable the approval engine
+
+1. Open **Quotes \> Configurations**.
+2. In the **Quote Approval Rules** section, toggle **Enable Quote Approval** to ON.
+
+#### Step 2 — Create your first rule
+
+1. Click **\+ Add New Rule**.
+2. In the rule block that appears, configure your first condition:
+   - **Field** — what you're checking (Organization, Customer, etc.)
+   - **Operator** — how to compare (Includes, equals, etc.)
+   - **Value** — the specific entity you're matching against (use the search icon to pick)
+3. To add more conditions to the same rule, click **\+ Add Condition** and repeat. All conditions in a rule must match for the rule to trigger.
+4. To add a separate rule, click **\+ Add New Rule** again. Any rule that matches will trigger approval.
+
+When the rules are valid, you'll see _Ready to save: \[X\] rule(s) configured_ at the bottom of the page. 5. Click **Save Rules**.
+
+#### Step 3 — Modify or remove rules later
+
+| Action | How to do it |
+| :-- | :-- |
+| Delete an entire rule | Click **Remove Rule** on the rule block |
+| Clear a specific field | Click the **X** on the Field, Operator, or Value |
+| Remove a single condition | Click the **trash icon** next to the condition |
+| Save your changes | Click **Save Rules** |
+
+**Caution:** Configuration changes take effect immediately for newly created and edited quotes. Tightening a rule means more quotes will start landing in approval. Loosening one means fewer will. The change won't retroactively pull existing quotes back into approval, but it will affect everything going forward.
+
+## Template
+
+Template controls how your quotes look when they reach the customer. The data inside the quote — items, prices, customer info — comes from Builder. The visual presentation comes from here.
+
+**When you'll use it:** Once, when you set up a custom-branded quote document. After that, rarely.
+
+### The default template
+
+The platform ships with a built-in **Default Quote Template** that's always available. If you haven't created any custom templates, every quote document uses this one. So you don't have to do anything for quotes to work — the default has you covered.
+
+That said, most teams eventually want a customized version that reflects their brand and language preferences.
+
+### Create a custom template
+
+1. Open **Quotes \> Template** in the sidebar.
+2. Click **\+ Create Template**. A workspace opens with two panels.
+3. In the modal header: enter a **Template Name** and **Description**.
+4. In the left panel: arrange the template's sections. The available sections include:
+   - Header (Company Info, Document Details)
+   - Bill To
+   - Payment Details
+   - Shipping Address
+   - Line items
+   - Totals and footer
+5. Within each section, drag and reorder individual elements (logo, address fields, dates, quote number, and so on).
+6. In the right panel: review the **live preview** as you work. The preview updates instantly to reflect your changes.
+7. **Optional:** click **Edit Labels** in the modal header to customize the wording shown on the document. For example, you can change "Document Number" to "Quote #".
+8. Click **Save Template**.
+
+The new template appears in the Template list and can be used for future quotes. The built-in default remains available alongside it.
+
+> **Important:** Template only changes how quotes look. It does not change pricing, approval rules, line items, lifecycle states, or anything operational. A bad template can hurt how professional your quote feels, but it won't break the quote itself.
+
+## Transfer Requests
+
+This is the area you'll touch the least, but when you need it, you really need it. Transfer Requests handles the reassignment of quote ownership from one team member to another.
+
+**When you'll use it:** When a salesperson leaves, when an account changes reps, or when a team reorg shifts responsibility for a customer.
+
+### Find a transfer request
+
+Open **Quotes \> Transfer Requests** in the sidebar.
+
+| Tool | What it does |
+| :-- | :-- |
+| Search by customer name, organization... | Locate records by customer or organization |
+| Status dropdown | Filter by Approved or Rejected |
+
+Each row in the list shows: Customer, Status, Number of Quotes, Request Message, Requested Date, and available Actions.
+
+### Review a transfer request
+
+Click any row to open the detail page. Here's what you'll see:
+
+| Section | What's in it |
+| :-- | :-- |
+| Header | Transfer Request ID, submission timestamp, current status |
+| Organization | Business name, domain, and tax-exempt status |
+| Quotes To Be Transferred | The specific quote records included in this transfer |
+| Requested By | Profile of the person who initiated the transfer |
+| Reviewed By | Administrator who processed the request |
+| Message | The requester's internal explanation for the transfer |
+| Actions | Confirmation banner showing the transfer outcome |
+
+### What changes after approval
+
+When a transfer is approved:
+
+- Ownership fields on the affected quotes — like **Created By** or **Quoted By** — update to reflect the new owner.
+- Everything else about the quotes stays exactly the same: customer mapping, line items, lifecycle status, comments, activity history, and downstream order eligibility all carry through unchanged.
+- The approval is logged in the audit trail, linked to the administrator who processed it.
+
+**The key thing to understand:** Transfer Requests doesn't edit quotes — it reassigns them. The commercial content is untouched. Only the answer to "who is responsible for this quote?" changes.
+
+## Approval workflow
+
+Approval isn't a separate area you visit. It's a workflow that flows through the module, touching Configurations, Builder, and downstream order handling.
+
+### How it works, end to end
+
+1. **Rules are defined in Configurations.** An admin enables approval and creates rules describing which quotes need a second pair of eyes.
+2. **A quote is created or edited in Builder.** When the salesperson saves, the system checks the quote against the active rules.
+3. **If the quote matches, it moves to Approval status.** The salesperson can no longer push it forward. The quote sits in the **Approval** tab and waits.
+4. **A reviewer with approval authority opens the quote.** They review the full context — customer, items, pricing, shipping, tax, margin — before deciding.
+5. **The reviewer updates the status to Ready or Completed.** The quote leaves the Approval queue and resumes its normal lifecycle. The action is captured in the **Activity** tab.
+6. **The quote is converted to an order.** Either manually via **Connect to Deal**, or automatically if **Automatic Order Creation** is enabled.
+
+### Approve a quote (reviewer guide)
+
+If you have approval authority:
+
+1. Open **Quotes \> Builder**.
+2. Click the **Approval** status tab to see all quotes waiting for review.
+3. Click any quote to open it.
+4. Review the full context:
+   - The **Summary panel** (totals and margin)
+   - The **Customer section** (correct entity, tax-exempt status if applicable)
+   - The **Items section** (right products, right quantities)
+   - The **Activity tab** (history of edits)
+5. To approve, change the quote's status to **Ready** (if it still needs more work before being sent) or **Completed** (if it's fully finalized).
+6. Optionally, leave a comment in the **Comments** tab explaining your decision.
+
+The action is automatically logged in the Activity tab with your name and timestamp.
+
+**Why this exists:** Approval isn't bureaucracy. It's making sure quotes that meet certain risk thresholds — unusual customers, tight margins, big orders — get a second look before they go out the door.
+
+## Permissions
+
+Access in the Quotes module is governed by your role. The permission system decides what you see and what you can do.
+
+| If you have… | You can… |
+| :-- | :-- |
+| View-only quote permission | Open and read quote records, but not edit them |
+| Standard quote permission | Create and edit quotes, manage line items, link customers, set shipping and payment |
+| Approval authority | Review and act on quotes in the Approval queue |
+| Configuration permission | Manage approval rules and quote-wide defaults |
+| Template permission | Create and edit document templates |
+| Request permission | Review and update incoming submissions |
+| Administrator permission | Approve transfer requests, plus everything above |
+
+Frontend controls — edit buttons, save options, approval actions — are shown or hidden based on your specific permissions. If you can't see an action you expected, it's almost always a permission issue.
+
+**Need access?** Contact your platform administrator and request the specific permission listed above.
 
 ## Troubleshooting
 
-<AccordionGroup>
-  <Accordion title="Tax is showing $0.00">
-    Check **Customers \> Companies**. The entity is likely marked as approved tax-exempt.
-  </Accordion>
+The Quotes module connects to many other parts of the platform. When something doesn't behave the way you expected, the cause is sometimes outside the module itself. Here are the most common situations.
 
-  <Accordion title="I can't click 'Connect to Deal'">
-    Ensure the quote has a linked customer, at least one line item, a payment method, and has cleared the approval queue.
-  </Accordion>
+#### Tax is showing \$0.00 when I expected a tax amount
 
-  <Accordion title="A quote disappeared from my list">
-    It may have been reassigned. Check **Transfer Requests** to see if ownership was shifted to another rep.
-  </Accordion>
-</AccordionGroup>
+**Likely cause:** The customer's company is marked as approved tax-exempt. **Where to check:** Open **Customers \> Companies**, find the company, and look at its **Tax Exempt status** under Approvals. If it's approved tax-exempt, the system is correctly applying the exemption to the quote.
+
+#### A quote landed in Approval and I didn't expect it to
+
+**Likely cause:** The quote matches an active approval rule. **Where to check:** Open **Quotes \> Configurations** and review the active approval rules. The quote may match a rule based on customer, organization, margin, or another field you weren't aware was being checked.
+
+#### I can't click Connect to Deal
+
+**Likely cause:** The quote is missing required information or hasn't cleared approval. **Where to check:** Make sure the quote has:
+
+- A linked customer
+- At least one line item
+- A payment method selected
+- Shipping information (if required)
+- Cleared approval (if it was routed there)
+
+#### A quote disappeared from my list
+
+**Likely cause:** Ownership was transferred to someone else. **Where to check:** Open **Quotes \> Transfer Requests** and search for the customer or organization. Recent transfers reassign quote ownership and remove the quote from the previous owner's view.
+
+#### I can see a button but can't click it
+
+**Likely cause:** Permissions issue. **Where to check:** Contact your administrator. The button is being shown but disabled because your role doesn't include the relevant permission.
+
+**General tip:** When in doubt, the **Activity** tab on any quote shows the full history of what's happened to it who edited what, when, and why. It's almost always the fastest way to understand what's going on.
