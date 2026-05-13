@@ -73,7 +73,8 @@
             "group": "Quotes",
             "icon": "newspaper",
             "pages": [
-              "builder"
+              "builder",
+              "requests"
             ]
           },
           {
