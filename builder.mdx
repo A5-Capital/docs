@@ -1,4 +1,180 @@
 ---
 title: "Builder"
-icon: "page"
 ---
+
+## Overview
+
+The **Builder** is the operational heart of the Quotes module—the central space where quotes are created, edited, reviewed, and finalized. Every quote follows a structured lifecycle from a draft to a converted sales order.
+
+---
+
+## Access the Builder
+
+The Builder Ledger acts as your central command center for tracking the quoting pipeline. You can use this view to monitor quote statuses, filter specific customer requests, and perform bulk actions.
+
+To access the builder, navigate to **Quotes \> Builder** in the sidebar.
+
+### Management tools
+
+Use the top navigation bar and action buttons to organize your workspace:
+
+| Tool | Purpose |
+| :-- | :-- |
+| **Status tabs** | Filter the list by lifecycle stage: **All**, **Draft**, **Approval**, **Ready**, **Completed**, **Ordered**, **Cancelled**, **Expired**, **Archived**. |
+| **My Quotes Only** | Toggle this switch to view only the quotes created by you. |
+| **Search quotes...** | Use the search bar to find specific records by title or unique ID. |
+| **All Filters** | Open advanced filtering options to narrow results by date, customer, or value. |
+| **Sort By** | Reorder the list based on specific attributes like newest created or highest total. |
+
+### Ledger Table Columns
+
+The ledger displays high-level data for every quote in a row format. Each entry provides immediate visibility into:
+
+- **Quote ID & Title**: The unique identifier and reference name for the quote.
+- **Customer & Company**: The name of the contact and the organization associated with the deal.
+- **Tags**: Visual labels used for internal organization.
+- **Total Amount**: The current subtotal of the items in the quote.
+- **Status**: A color-coded badge indicating where the quote sits in the lifecycle (e.g., **Pending**, **Confirmed**).
+- **Payment**: The intended payment method, such as **Card** or **Check**.
+- **Three-dot menu**: Click this at the end of any row to access quick actions like editing, duplicating, or archiving.
+
+<Info>
+  The quote ledger updates in real-time. If a customer accepts or pays for a quote, the status will automatically transition from **Ready** to **Ordered**.
+</Info>
+
+### Understanding quote statuses
+
+<Tabs>
+  <Tab title="Active">
+    **Draft**: The quote is currently being built and has not been sent to the customer. **Approval**: The quote is undergoing internal review. **Ready**: The quote is sent and awaiting customer action.
+  </Tab>
+  <Tab title="Finalized">
+    **Completed**: The quote has been finalized but not yet turned into an order. **Ordered**: The quote has successfully converted into a Sales Order. **Cancelled**: The quote was retracted or rejected.
+  </Tab>
+</Tabs>
+
+---
+
+## Create a new quote
+
+To initiate the quoting process:
+
+<Steps>
+  <Step title="Initialize">
+    Click **\+ Create Quote** in the top right.
+  </Step>
+  <Step title="Name the Quote">
+    Enter a **Quote Title** in the modal. (Title is required.)
+  </Step>
+  <Step title="Generate">
+    Click **Create New Quote**.
+  </Step>
+</Steps>
+
+The system assigns a unique **Quote ID**, sets the status to **Draft**, and opens the editor. From there, you can flesh out the quote in any order—though we recommend following the sections top-to-bottom.
+
+---
+
+## Build a complete quote
+
+### 1. Set the customer
+
+Always start here. The customer selection impacts tax calculations, shipping accuracy, approval logic, and downstream order mapping.
+
+1. In the **Customer** section, click **Search Customer**.
+2. Search by name, email, or company name and select the result.
+3. If the customer is new, click **Create Customer**, fill in the details, and the system will automatically attach them to the quote.
+
+<Warning>
+  A quote with no customer cannot be approved or converted. This is the step easiest to skip when you're in a hurry and the one that causes issues later.
+</Warning>
+
+### 2. Add shipping information
+
+1. Click **Add Shipping Information** in the **Shipping** section.
+2. Enter the recipient name and delivery address.
+3. Click **Save**. The **Summary** panel immediately updates.
+
+<Info>
+  Make sure the entered address is correct and actually exists. We use an external service to validate entered address and if it actually exists. Both Line 1 and Line 2 should be correct.
+</Info>
+
+### 3. Choose a payment method
+
+1. Open the **Select Payment Method** dropdown.
+2. Pick a method (e.g., **Card**, **Check, ACH, Deferred**).
+3. The selection saves automatically and is shown both in the editor and the main **Builder** list.
+
+### 4. Add line items
+
+1. Click **\+ Add Item** (or **Add your first item** if the quote is empty).
+2. Search for a product by name or **MPN**.
+3. Select the item to add it to the line-item table.
+4. Adjust quantity, unit price, or margin. The **Summary** panel recalculates instantly.
+
+<Tip>
+  To remove an item, click the delete action on its row. To reorder items, use **Sort By** inside the **Items** section.
+</Tip>
+
+### 5. Verify the totals
+
+The **Summary** panel stays visible the whole time you are editing. Review the following:
+
+- **Sub-Total**: Sum of all line items.
+- **Tax**: Calculated based on customer and company tax rules.
+- **Shipping**: Based on shipping configuration.
+- **Order Total**: Final amount.
+- **Est Margin**: Estimated margin amount and percentage.
+
+<Info>
+  Watch **Est Margin** as you adjust prices. If your team has approval rules tied to margin thresholds, you will see the moment a quote triggers a mandatory review.
+</Info>
+
+---
+
+## Collaborate on a quote
+
+Use the tabs below the editor for internal coordination:
+
+| Tab | Use it for |
+| :-- | :-- |
+| **Comments** | Leave timestamped notes, reply to threads, and attach files. |
+| **Activity** | Audit trail of every action taken on the quote. |
+| **Tasks** | Work items associated with this specific quote. |
+
+To leave a comment:
+
+1. Open the **Comments** tab.
+2. Click **Add Quote Comment**.
+3. Type your message. You can attach files or set visibility to **Internal** vs. **Standard**.
+4. Click **Save**.
+
+---
+
+## Quote statuses explained
+
+| Status | What it means |
+| :-- | :-- |
+| **Draft** | Still being assembled—not yet submitted for review. |
+| **Approval** | Tripped an approval rule and is waiting on a reviewer to act. |
+| **Ready** | Cleared review and is in good shape to send to the customer. |
+| **Completed** | Finalized. |
+| **Ordered** | Converted into a sales order. |
+| **Cancelled** | Manually closed; no longer active. |
+| **Expired** | Passed its expiry date without being acted on. |
+| **Archived** | Stored for record-keeping. |
+
+---
+
+## Convert a quote to an order
+
+When the customer agrees and the quote is finalized:
+
+1. Open the quote in **Builder**.
+2. Click **Connect to Deal** in the header.
+3. The system creates a **Sales Order** with the customer, shipping, payment, and line items intact.
+4. The quote status updates and a **View Order** link appears in the header.
+
+<Note>
+  If your admin has enabled **Automatic Order Creation** in **Configurations**, this conversion happens automatically for approved quotes.
+</Note>
